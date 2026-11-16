@@ -39,6 +39,8 @@ class Fiende :
 Numer1opp =  Fiende("Abdulahlrazim" , 28 , 3)
 shottas = Fiende("Jordgubben" , 20 , 10)
 Telefontillmammma = Fiende("Gunilla", 50 , 2)
+jul = Fiende("Jultomten", 67 , 1)
+epi = Fiende("Epstain" , 30 , 10)
         
 
 
@@ -46,17 +48,13 @@ Telefontillmammma = Fiende("Gunilla", 50 , 2)
 
 
 
-
-
 def start_meny():
-    while True:
-        print("~~~~Escape Fregatten~~~~")
-        print("1. Starta Spel")
-        print("2. Credits")
-        print("3. Avsluta")
+    print("~~~~Escape Fregatten~~~~")
+    print("1. Starta Spel")
+    print("2. Credits")
+    print("3. Avsluta")
 
-
-
+start_meny()
 
 # slayer.inventory.append()
 # print(slayer.hp)
