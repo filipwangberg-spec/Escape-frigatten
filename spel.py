@@ -1,11 +1,12 @@
 
 import en_modul
 
+
 #karaktärer
 
 
 class Karaktar :
-    def __init__(self,namn,hp, luck,styrka , xp):
+    def __init__(self,namn,hp, luck, styrka , xp):
         self.namn = namn
         self.hp = hp
         self.luck = luck
@@ -14,8 +15,8 @@ class Karaktar :
         self.inventory = []
 
         
-    def print_character(self):
-        print(f" {self.namn} hp: {self.hp} luck: {self.luck} styrka: {self.styrka} xp :{self.xp} ")
+def print_character(self):
+    print(f" {self.namn} hp: {self.hp} luck: {self.luck} styrka: {self.styrka} xp :{self.xp} ")
 
 
 
@@ -55,7 +56,10 @@ shottas = Fiende("Jordgubben" , 20 , 10)
 Telefontillmammma = Fiende("Gunilla", 50 , 2)
 jul = Fiende("Jultomten", 67 , 1)
 epi = Fiende("Epstain" , 30 , 10)
-        
+diddi = Fiende(" P-diddi" , 5 ,20)
+på_körd = Fiende ("Jennifer" , 10 , 70)
+
+fiender = [Numer1opp, shottas, Telefontillmammma, jul, epi, diddi , på_körd]        
 
 
 
@@ -65,27 +69,47 @@ epi = Fiende("Epstain" , 30 , 10)
 def start_meny():
     en_modul.Rubrik()
     while True :
-        start_svar = input("""Tryck 1 för att Starta Spel 
+        start_svar = input("""
+        Tryck 1 för att Starta Spel 
         Tryck 2 för att se Credits 
-        Truck 3 för att Avsluta """)
+        Truck 3 för att Avsluta 
+        """)
         try :
-            int(start_svar)
+            start_svar = int(start_svar)
             break
         except :
             print("något gick fel")
             continue
-        # skriver ut karaktärerna
+    if start_svar == 1 :
+        karaktar_val()
+    elif start_svar == 2:
+        print("här ska det stå credits och sedan fråga om den vill gå til start meny eller avsluta")
+    elif start_svar == 3 :
+        print ("här står något coolt om hur du avslutade spelet")
+    else :
+        print ("Ditt tal är inte mellan 1-3")
+        start_meny()
+    
+ 
+# skriver ut karaktärerna
         
 
 
 def karaktar_val():
-    for c in charachters:
-            c.print_character()
-    try :
-        karaktar_vald = input("V")
-
-    except :
-        d
+    print("Välj din karaktär!")
+    print_character()
+    
+    val = input()
+    if val == "Nazrull":
+        return val
+    elif val == "Liza":
+        return val:
+    elif val == "Jeffi":
+        return val
+        
+def fight(spelare, fiende):
+    while karaktar.hp >= 0 and fiende.hp >=0
+        
  
 start_meny()
 
