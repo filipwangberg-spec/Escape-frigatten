@@ -13,10 +13,9 @@ class Karaktar :
         self.styrka = styrka
         self.xp = xp
         self.inventory = []
-
         
-def print_character(self):
-    print(f" {self.namn} hp: {self.hp} luck: {self.luck} styrka: {self.styrka} xp :{self.xp} ")
+    def print_character(self):
+        print(f" {self.namn} hp: {self.hp} luck: {self.luck} styrka: {self.styrka} xp :{self.xp} ")
 
 
 
@@ -96,19 +95,23 @@ def start_meny():
 
 
 def karaktar_val():
-    print("Välj din karaktär!")
-    print_character()
+    en_modul.Karaktar_val_text()
+    for c in charachters :
+        c.print_character()
+        
     
     val = input()
     if val == "Nazrull":
         return val
     elif val == "Liza":
-        return val:
+        return val
     elif val == "Jeffi":
         return val
         
 def fight(spelare, fiende):
-    while karaktar.hp >= 0 and fiende.hp >=0
+    while karaktar.hp >= 0 and fiende.hp >=0 :
+        print("ludde lock in !!!!")
+        break
         
  
 start_meny()
