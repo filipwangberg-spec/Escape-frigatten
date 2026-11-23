@@ -1,5 +1,6 @@
 
 import en_modul
+import random as randint
 
 
 #karaktärer
@@ -15,13 +16,19 @@ class Karaktar :
         self.inventory = []
         
     def print_character(self):
-        en_modul.slow_type(f" {self.namn} hp: {self.hp} luck: {self.luck} styrka: {self.styrka} xp :{self.xp} ")
+        en_modul.slow_type(f"{self.namn} hp: {self.hp} luck: {self.luck} styrka: {self.styrka} xp :{self.xp} ")
 
+    def showinventory():
+        for i in self.inventory:
+            print(i)
 
 
 def xp_ett (Karaktar):
     Karaktar.xp += 1
     print("du fick ett xp !!!")
+
+
+    
 
 
 
@@ -30,6 +37,7 @@ Surviver = Karaktar("Liza", 120 , 0.5 , 10 , 0)
 Damage = Karaktar ("Jeffi", 100 , 0.5 , 14 , 0)
 #lista med karaktärerna för att kunna printa ut dem i starten
 charachters = [Lucky, Surviver, Damage]
+charachter_vald = []
 
 
 
@@ -38,10 +46,15 @@ class Vapen :
         self.namn = namn
         self.multiplyer = multiplyer
 
-
+def kista():
+    print("Du hittade en kista")
+    foremal = vapen(randint(0,6))
 
 kniv = Vapen("Köks kniv", 1.2 )
 tofla = Vapen("Rutten tofla", 1.05)
+ak = Vapen("Ak47", 40)
+
+vapen = [kniv,kniv,tofla,tofla,tofla,ak]
 
 
 class Fiende :
@@ -101,29 +114,54 @@ def karaktar_val():
     while True :
         for c in charachters :
             c.print_character()
+            if c == Lucky :
+                print("Tryck 1 för att välja Nazrull")
+            elif c == Surviver :
+                print("Tryck 2 för att välja Liza")
+            elif c == Damage :
+                print("Tryck 3 för att välja Jeffi")
             
+        try:
+            val = int(input())
+            break
+        except:
+            print("skriv bara med bokstäver")
     
-        val = input()
-        
-        break
     
-    
-    if val == "Nazrull":
-        return val
-    elif val == "Liza":
-        return val
-    elif val == "Jeffi":
-        return val
+    if val == 1:
+        charachter_vald.append(Lucky)
+        print("Du har valt Nazrull")
+        en_modul.konstpaus
+
+        intro()
+    elif val == 2:
+        charachter_vald.append(Surviver)
+        print("Du har valt Liza")
+        en_modul.konstpaus
+        intro()
+    elif val == 3:
+        charachter_vald.append(Damage)
+        print("Du har valt Jeffi")
+        en_modul.konstpaus
+
+        intro()
     else :
-        print("hej")
+        print(f"ditt tal är utanför 1-3{karaktar_val}")
+
+def intro():
+    en_modul.slow_type("Du har vaknat upp på taket av faliga hustak 3 i Fregatten, du minns inte hur du hamnade här")
+
         
 def fight(spelare, fiende):
-    while karaktar.hp >= 0 and fiende.hp >=0 :
-        print("ludde lock in !!!!")
-        break
+    print(" Ludde fråga martin")
         
  
 start_meny()
+
+
+
+
+    
 
 # slayer.inventory.append()
 # print(slayer.hp)
