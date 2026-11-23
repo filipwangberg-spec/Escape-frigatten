@@ -47,12 +47,29 @@ class Vapen :
         self.multiplyer = multiplyer
 
 def kista():
-    print("Du hittade en kista")
-    foremal = vapen(randint(0,6))
+    print("Du hittade en kista välj ett vapen")
+    import random
+    slumpat_vapen = random.choice(vapen)
+    print(f"Du har hittat en {slumpat_vapen}")
+    while True :
+        try:
+            ta_upp_vapen = int(input(f"""
+            Vill du ta upp {slumpat_vapen} och lägga de i ditt inventory ? 
+            tryck 1 för ja, tryck 2 för nej"""))
+            break
+        except :
+            print("Du kan bara skriva med siffror")
+            continue
+
+    if ta_upp_vapen == 1 :
+        inventory.append(slumpat_vapen)
+            
+
+
 
 kniv = Vapen("Köks kniv", 1.2 )
 tofla = Vapen("Rutten tofla", 1.05)
-ak = Vapen("Ak47", 40)
+ak = Vapen("Ak47", 2.5)
 
 vapen = [kniv,kniv,tofla,tofla,tofla,ak]
 
@@ -69,7 +86,7 @@ Telefontillmammma = Fiende("Gunilla", 50 , 2)
 jul = Fiende("Jultomten", 67 , 1)
 epi = Fiende("Epstain" , 30 , 10)
 diddi = Fiende(" P-diddi" , 5 ,20)
-på_körd = Fiende ("Jennifer" , 10 , 70)
+på_körd = Fiende ("Jennifer(fiat 500)" , 10 , 70)
 
 fiender = [Numer1opp, shottas, Telefontillmammma, jul, epi, diddi , på_körd]        
 
@@ -150,7 +167,8 @@ def karaktar_val():
 
 def intro():
     en_modul.slow_type("Du har vaknat upp på taket av faliga hustak 3 i Fregatten, du minns inte hur du hamnade här")
-
+    en_modul.konstpaus
+    kista()
         
 def fight(spelare, fiende):
     print(" Ludde fråga martin")
