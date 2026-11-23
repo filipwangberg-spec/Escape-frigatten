@@ -15,7 +15,7 @@ class Karaktar :
         self.inventory = []
         
     def print_character(self):
-        print(f" {self.namn} hp: {self.hp} luck: {self.luck} styrka: {self.styrka} xp :{self.xp} ")
+        en_modul.slow_type(f" {self.namn} hp: {self.hp} luck: {self.luck} styrka: {self.styrka} xp :{self.xp} ")
 
 
 
@@ -82,9 +82,11 @@ def start_meny():
     if start_svar == 1 :
         karaktar_val()
     elif start_svar == 2:
-        print("här ska det stå credits och sedan fråga om den vill gå til start meny eller avsluta")
+        en_modul.slow_type("här ska det stå credits och sedan fråga om den vill gå til start meny eller avsluta")
     elif start_svar == 3 :
-        print ("här står något coolt om hur du avslutade spelet")
+        en_modul.slow_type("Du hoppade av taket och föll till döds😭😭😭")
+        en_modul.konstpaus()
+        en_modul.game_over()
     else :
         print ("Ditt tal är inte mellan 1-3")
         start_meny()
@@ -96,17 +98,24 @@ def start_meny():
 
 def karaktar_val():
     en_modul.Karaktar_val_text()
-    for c in charachters :
-        c.print_character()
-        
+    while True :
+        for c in charachters :
+            c.print_character()
+            
     
-    val = input()
+        val = input()
+        
+        break
+    
+    
     if val == "Nazrull":
         return val
     elif val == "Liza":
         return val
     elif val == "Jeffi":
         return val
+    else :
+        print("hej")
         
 def fight(spelare, fiende):
     while karaktar.hp >= 0 and fiende.hp >=0 :
