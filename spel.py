@@ -14,13 +14,14 @@ class Karaktar :
         self.styrka = styrka
         self.xp = xp
         self.inventory = []
+        self.hand = []
         
     def print_character(self):
         print(f"{self.namn} hp: {self.hp} luck: {self.luck} styrka: {self.styrka} xp :{self.xp} ")
 
-    def show_inventory(self,inventory):
-        for i in self.inventory:
-            print(f"{i}")
+    def show_inventory(self) -> Vapen:
+        for vapen in self.inventory:
+            print(f"du har {vapen.namn} sho")
     
     def Lägg_till_i_inventory(self,sak):
         self.inventory.append(sak)
@@ -73,10 +74,14 @@ def kista():
         if ta_upp_vapen == 1 :
             charachter_vald[0].Lägg_till_i_inventory(slumpat_vapen)
             vapen_kista.remove(slumpat_vapen)
+            en_modul.konstpaus()
+            Karaktar.show_inventory
             break
         #Nej
         elif ta_upp_vapen == 2:
             print ("du lämnade vapent i kistan ? 🤌🤌")
+            en_modul.konstpaus()
+            Karaktar.show_inventory
             break
         else :
             print("ditt tal är utanför 1-2")
@@ -132,6 +137,7 @@ def start_meny():
             en_modul.slow_type("Du hoppade av taket och föll till döds😭😭😭")
             en_modul.konstpaus()
             en_modul.game_over()
+            break
         else :
             print ("Ditt tal är inte mellan 1-3")
             continue
@@ -169,29 +175,85 @@ def karaktar_val():
             charachter_vald.append(Surviver)
             print("Du har valt Liza")
             en_modul.konstpaus
+            intro()
             break
             intro()
         elif val == 3:
             charachter_vald.append(Damage)
             print("Du har valt Jeffi")
             en_modul.konstpaus
+            intro()
             break
         else :
             print("ditt tal är utanför 1-3")
             continue
 
-        intro()
-    else :
-        print(f"ditt tal är utanför 1-3{karaktar_val}")
+  
 
 def intro():
     en_modul.slow_type("Du har vaknat upp på taket av faliga hustak 3 i Fregatten, du minns inte hur du hamnade här")
     en_modul.konstpaus
     kista()
-    fight
+    door()
+
+
+def door():
+    print("Du uppnår tre dörrar")
+    while True :
+        try :
+            val = input("Vilken dörr väljer du? Dörr 1, 2 eller 3?")
+            print(f"Du går in i dörr nummer {val}.")
+        except :
+            print("hej")
+
+
+
+
+def get_current_charachter() -> Karaktar:
+    return charachter_vald[0]
+
+def get_random_fiende ()-> Fiende :
+    import random
+    slumpad_fiende = random.choice(fiender)
+    fiender.remove(slumpad_fiende)
+    return slumpad_fiende
+
+
+
+def fight():
+    current_character = get_current_charachter()
+    current_fiende = get_random_fiende()
+    
+    en_modul.slow_type(f"Du stöter på {current_fiende.namn}")
+    
+    while current_character.hp > 0 and current_fiende.hp > 0:
+       
+        print(f"{current_fiende.namn} har {current_character.hp} hp")
+        print(f"Du har {current_character.hp} hp")
+        print(f"Tryck 1 för att attackera och 2 för att fly.")
+        try:
+            val = int(input("Vad vill du göra"))
+        except :
+            print("Du kan bara svara med 1 eller 2")
+        if val == 1:
+            skada = current_character.styrka
+            
+            if len(current_character.hand) > 0:
+                vapen = current_character.hand[0]
+                skada = int(skada * vapen.multiplyer)
+                print(f"Du attackerade med {vapen.namn}")
+
+            
+                
+                
+            
+    
+
         
-def fight(spelare, fiende):
-    print(" Ludde fråga martin")
+        
+            
+            
+        
         
  
 start_meny()
@@ -205,4 +267,12 @@ start_meny()
 # print(slayer.hp)
 # slayer.hp -= 0.1
 # print(slayer.hp)
+
+
+
+
+
+
+
+
 

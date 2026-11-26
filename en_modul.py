@@ -1,4 +1,6 @@
 
+import spel
+
 def Rubrik ():
     skriv_text_uppefrån_ner("""   
 █████  ████  ███   ███  ████  █████    █████ ████  █████  ███   ███  █████ █████ █████ █   █   
