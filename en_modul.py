@@ -1,6 +1,6 @@
 
 def Rubrik ():
-    print("""   
+    skriv_text_uppefrån_ner("""   
 █████  ████  ███   ███  ████  █████    █████ ████  █████  ███   ███  █████ █████ █████ █   █   
 █░░░░░█ ░░░░█ ░░░ █ ░░█ █░░░█ █░░░░░   █░░░░░█░░░█ █░░░░░█ ░░░ █ ░░█  ░█░░░ ░█░░░█░░░░░██  █░  
 ████░░░███░░█░ ░░░█████░████░░████░░░  ████░░████░░████░░█░ ██░█████░  █░░░░ █░░░████░░█░█ █░░ 
@@ -11,7 +11,7 @@ def Rubrik ():
 
 
 def Karaktar_val_text():
-    print("""
+    skriv_text_uppefrån_ner("""
 █   █  ███  ████   ███  █   █ █████  ███  ████   ████    █   █  ███  █     
 █  █  █   █ █   █ █   █ █  █    █   █   █ █   █ █        █   █ █   █ █     
 ███   █████ ████  █████ ███     █   █   █ ████   ███     █   █ █████ █     
@@ -20,7 +20,7 @@ def Karaktar_val_text():
 """)
 
 def game_over() :
-    print("""
+    skriv_text_uppefrån_ner("""
   ██████      ██████    ██      ██  ██████████          ██████    ██      ██  ██████████  ████████    
   ██████      ██████    ██      ██  ██████████          ██████    ██      ██  ██████████  ████████    
 ██          ██      ██  ████  ████  ██                ██      ██  ██      ██  ██          ██      ██  
@@ -47,6 +47,11 @@ def slow_type(t):
     print ()
 # gör så att koden väntar 1 sek innan den körs
 def konstpaus():
-    import time
     time.sleep(1)
 
+
+
+def skriv_text_uppefrån_ner(text):
+    for rad in text.splitlines():
+        print(rad)
+        time.sleep(0.2)
